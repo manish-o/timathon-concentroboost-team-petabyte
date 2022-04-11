@@ -1,0 +1,97 @@
+<script type="text/javascript" src="../eel.js"></script>
+<title>ConcentroBoost</title>
+<body style="background-color: black">
+
+<style>
+    h1
+    {
+        color:white;
+    }
+    p
+    {
+        color:white;
+    }
+    </style>
+<h1 style=text-align:center>  Pomodoro</h1>
+<style>
+
+    button {
+        position: absolute;
+        padding: 19px 36px;
+        display: block;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        border-radius: 40px;
+        border: none;
+    }
+
+    button span {
+        position: relative;
+        color: rgb(255, 255, 255);
+        font-family: Arial;
+        letter-spacing: 8px;
+        z-index: 1;
+    }
+    button .liquid {
+        position: absolute;
+        top: -80px;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        background: #555a6b;
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+        transition: .5s;
+    }
+    button .liquid::after,
+    button .liquid::before {
+        content: '';
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -75%);
+        background: #fff;
+    }
+    button .liquid::before {
+        border-radius: 45%;
+        background: rgba(20, 20, 20, 1);
+        animation: animate 5s linear infinite;
+
+    }
+    button .liquid::after {
+        border-radius: 40%;
+        background: rgba(20, 20, 20, .5);
+        animation: animate 10s linear infinite;
+    }
+    button:hover .liquid {
+        top: -120px;
+    }
+    @keyframes animate {
+        0% {
+            transform: translate(-50%, -75%) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -75%) rotate(360deg);
+        }
+    }
+</style>
+
+<a href="https://open.spotify.com/album/0MHeZZVjXaDqFZsE4hIoot?si=aI8gf9ygR8yBweKPAleYZg" target="_blank" rel="noopener noreferrer">
+    <button style="margin-left: 465px; margin-top: 600px;">
+        <span>Music</span>
+    
+        <div class="liquid"></div>
+    
+    </button>
+</a>
+<a href="https://pomofocus.io">
+    <button style="margin-left: 465px; margin-top: 300px;">
+        <span>pomodoro</span>
+    
+        <div class="liquid"></div>
+    </button>
+</a>
+</body>
+</html>

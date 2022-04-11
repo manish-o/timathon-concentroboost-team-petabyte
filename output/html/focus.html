@@ -1,0 +1,140 @@
+<head>
+    <title>Blink Detector</title>
+    <!-- Load required packages -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.106.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/scatter-gl@0.0.1/lib/scatter-gl.min.js"></script>
+  <style>
+    .canvas-wrapper, #scatter-gl-container {
+      display: inline-block;
+      vertical-align: top;
+    }
+  
+    #scatter-gl-container {
+      border: solid 1px black;
+      position: relative;
+    }
+  
+    /* center the canvas within its wrapper */
+    #scatter-gl-container canvas {
+      transform: translate3d(-50%, -50%, 0);
+      left: 50%;
+      top: 50%;
+      position: absolute;
+    }
+  </style>
+  <script>
+  </script>
+  </head>
+  <body>
+    <div>
+      <h1 style = "text-align:center;">Yawn Counter</h1>
+      <h2  style = "text-align:center;">Counts the number of yawns using Facial Keypoint Detection model to let you know that you are sleepy using a pre-trained model. Also features a focus music button, scroll down to access.</h2>
+      <h3 id = "yawnTag" style="text-align:center;">Yawns Counted = 0</h3>
+    </div>
+    <div id="main">
+      <div class="container">
+        <!-- Video Feed Container -->
+        <div class="canvas-wrapper">
+          <canvas id="output"></canvas>
+          <video id="video" playsinline style="
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+            visibility: hidden;
+            width: auto;
+            height: auto;
+            ">
+          </video>
+        </div>
+
+    <div id="chartContainer" style="height: 370px; width:100%;"></div>
+  </body>
+  
+  <!-- Loading Tensorflow-JS package -->
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.6.0/dist/tf.js"></script>
+  <style>
+
+    button {
+        position: absolute;
+        padding: 19px 36px;
+        display: block;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        border-radius: 40px;
+        border: none;
+    }
+
+    button span {
+        position: relative;
+        color: #fff;
+        font-family: Arial;
+        letter-spacing: 8px;
+        z-index: 1;
+    }
+    button .liquid {
+        position: absolute;
+        top: -80px;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        background: #8a0dc4;
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+        transition: .5s;
+    }
+    button .liquid::after,
+    button .liquid::before {
+        content: '';
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -75%);
+        background: #fff;
+    }
+    button .liquid::before {
+        border-radius: 45%;
+        background: rgba(20, 20, 20, 1);
+        animation: animate 5s linear infinite;
+
+    }
+    button .liquid::after {
+        border-radius: 40%;
+        background: rgba(20, 20, 20, .5);
+        animation: animate 10s linear infinite;
+    }
+    button:hover .liquid {
+        top: -120px;
+    }
+    @keyframes animate {
+        0% {
+            transform: translate(-50%, -75%) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -75%) rotate(360deg);
+        }
+    }
+</style>
+  <!-- Adds the WEBGL backend to the global backend registry -->
+  <script>tf.setBackend('webgl').then(() => console.log('webgl backend registered'));</script>
+  <a href="https://open.spotify.com/playlist/098ZdsH5LSrCbTkTpyWeim?si=1b9498c054e34059" target="_blank" rel="noopener noreferrer">
+
+    <button style="margin-left: 610px; margin-top: 400px;">
+        <span>Music</span>
+    
+        <div class="liquid"></div>
+    
+    </button>
+</a>
+  <!-- Load required Tensorflow-JS packages -->
+  <script src="https://unpkg.com/@tensorflow/tfjs-core@2.4.0/dist/tf-core.js"></script>
+  <script src="https://unpkg.com/@tensorflow/tfjs-converter@2.4.0/dist/tf-converter.js"></script>
+  <script src="https://unpkg.com/@tensorflow/tfjs-backend-webgl@2.4.0/dist/tf-backend-webgl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js"></script>
+  <script src="https://unpkg.com/@tensorflow-models/face-landmarks-detection@0.0.2/dist/face-landmarks-detection.js"></script>
+  <script src="stats.js"></script>
+  <script src="controller.js"></script>
+  <script src="index.js"></script>
+  
